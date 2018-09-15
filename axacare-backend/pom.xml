@@ -10,6 +10,7 @@
     </parent>
     <artifactId>axacare-backend</artifactId>
     <packaging>war</packaging>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -42,8 +43,8 @@
             <artifactId>spring-boot-starter-integration</artifactId>
         </dependency>
         <dependency>
-            <groupId>ch.hackzurich</groupId>
-            <artifactId>axacare</artifactId>
+            <groupId>ch.hackzurich.axacare</groupId>
+            <artifactId>axacare-web</artifactId>
             <version>${project.version}</version>
             <scope>runtime</scope>
         </dependency>
@@ -84,7 +85,8 @@
                             <outputDirectory>${project.build.directory}/classes/resources/</outputDirectory>
                             <resources>
                                 <resource>
-                                    <directory>${project.parent.basedir}/axacare-web/src/main/web/src/</directory>
+                                    <directory>${project.parent.basedir}/axacare-web/src/main/web/dist/np-app/
+                                    </directory>
                                 </resource>
                             </resources>
                         </configuration>

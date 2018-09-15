@@ -15,3 +15,6 @@ buildNumber.properties
 .mvn/timing.properties
 .mvn/wrapper/maven-wrapper.jar
 
+axacarebackend/src/main/resources/static/
+axacarebackend/src/main/resources/templates/
+axacareweb/src/test/
