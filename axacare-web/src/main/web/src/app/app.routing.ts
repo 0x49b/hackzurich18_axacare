@@ -13,13 +13,21 @@ import {PatientrecipesComponent} from "./patientrecipes/patientrecipes.component
 import {PatienthelpComponent} from "./patienthelp/patienthelp.component";
 
 const appRoutes: Routes = [
-  {path: '', component: HomeComponent, canActivate: [AuthGuard]},
+  {path: '',
+    component: HomeComponent,
+    canActivate: [AuthGuard],
+    data: {
+      expectedType: ['patient', 'doctor', 'pharmacy']
+    }},
+
+
+
   {
     path: 'patient',
     component: PatientdashboardComponent,
     canActivate: [AuthGuard],
     data: {
-      expectedType: 'patient'
+      expectedType: ['patient']
     }
   },
   {
@@ -27,7 +35,7 @@ const appRoutes: Routes = [
     component: PatientcasesComponent,
     canActivate: [AuthGuard],
     data: {
-      expectedType: 'patient'
+      expectedType:['patient']
     }
   },
   {
@@ -35,7 +43,7 @@ const appRoutes: Routes = [
     component: PatientprofileComponent,
     canActivate: [AuthGuard],
     data: {
-      expectedType: 'patient'
+      expectedType: ['patient']
     }
   },
   {
@@ -43,7 +51,7 @@ const appRoutes: Routes = [
     component: PatientrecipesComponent,
     canActivate: [AuthGuard],
     data: {
-      expectedType: 'patient'
+      expectedType:['patient']
     }
   },
   {
@@ -51,27 +59,42 @@ const appRoutes: Routes = [
     component: PatienthelpComponent,
     canActivate: [AuthGuard],
     data: {
-      expectedType: 'patient'
+      expectedType: ['patient']
     }
   },
+
+
+
+
+
+
 
   {
     path: 'doctor',
     component: DoctordashboardComponent,
     canActivate: [AuthGuard],
     data: {
-      expectedType: 'doctor'
+      expectedType: ['doctor']
     }
   },
+
+
+
+
+
 
   {
     path: 'pharmacy',
     component: PharmacydashboardComponent,
     canActivate: [AuthGuard],
     data: {
-      expectedType: 'pharmacy'
+      expectedType: ['pharmacy']
     }
   },
+
+
+
+
 
 
   {path: 'login', component: LoginComponent},
