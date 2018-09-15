@@ -2,3 +2,15 @@
 .invalid-feedback{
   color: #fff;
 }
+
+.transparent{
+  background-color: transparent;
+}
+.transparent-header{
+  border: 1px solid #fff;
+  background-color: #38699f;
+}
+
+.transparent-body{
+  border: 1px solid #fff;
+}

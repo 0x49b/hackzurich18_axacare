@@ -15,7 +15,7 @@ export class PatientprofileComponent implements OnInit {
 
   ngOnInit() {
     this.user = JSON.parse(this.userService.getCurrentUser());
-    this.userimage = this.user.image;
+    this.userimage = 'assets/'+ this.user.image;
   }
 
 
