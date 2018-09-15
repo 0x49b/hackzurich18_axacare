@@ -19,13 +19,12 @@ import {DoctordashboardComponent} from './doctordashboard/doctordashboard.compon
 import {PharmacydashboardComponent} from './pharmacydashboard/pharmacydashboard.component';
 import {AngularFontAwesomeModule} from "angular-font-awesome";
 import {NgxQRCodeModule} from "ngx-qrcode3";
-;
-import {PatientcasesComponent} from './patientcases/patientcases.component';;
-import { PatientprofileComponent } from './patientprofile/patientprofile.component'
-;
-import { PatientrecipesComponent } from './patientrecipes/patientrecipes.component'
-;
-import { PatienthelpComponent } from './patienthelp/patienthelp.component'@NgModule({
+import {PatientcasesComponent} from './patientcases/patientcases.component';
+import {PatientprofileComponent} from './patientprofile/patientprofile.component';
+import {PatientrecipesComponent} from './patientrecipes/patientrecipes.component';
+import {PatienthelpComponent} from './patienthelp/patienthelp.component';
+
+@NgModule({
   imports: [
     BrowserModule,
     ReactiveFormsModule,
@@ -44,10 +43,9 @@ import { PatienthelpComponent } from './patienthelp/patienthelp.component'@NgMod
     DoctordashboardComponent,
     PharmacydashboardComponent,
     PatientcasesComponent,
-    PatientprofileComponent
-,
-    PatientrecipesComponent ,
-    PatienthelpComponent ],
+    PatientprofileComponent,
+    PatientrecipesComponent,
+    PatienthelpComponent],
   providers: [
     AuthGuard,
     AlertService,
