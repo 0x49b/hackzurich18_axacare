@@ -29,8 +29,8 @@ export class AppComponent implements OnInit{
       "      {  \n" +
       "      \"firstName\":\"Severus\",\n" +
       "      \"lastName\":\"Snape\",\n" +
-      "      \"username\":\"pharmacist\",\n" +
-      "      \"password\":\"pharmacist\",\n" +
+      "      \"username\":\"pharmacy\",\n" +
+      "      \"password\":\"pharmacy\",\n" +
       "      \"id\":20,\n" +
       "      \"type\":\"pharmacy\"\n" +
       "   }\n" +
