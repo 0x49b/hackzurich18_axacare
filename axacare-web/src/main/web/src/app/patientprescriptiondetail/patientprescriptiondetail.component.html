@@ -1,8 +1,8 @@
 <nav class="navbar fixed-top navbar-light bg-primary text-center">
   <ul class="navbar-nav mr-auto pull-left">
     <li class="nav-item text-light">
-      <button type="button" class="nav-link text-light" routerLink="/patientrecipes"><i class="fa fa-angle-left"></i> My
-        Recipes
+      <button type="button" class="nav-link text-light" routerLink="/patientprescriptions"><i class="fa fa-angle-left"></i> My
+        prescriptions
       </button>
     </li>
   </ul>
@@ -13,8 +13,8 @@
 
   <div class="card" style="width: 18rem;">
     <div class="card-body">
-      <h5 class="card-title">Dr. {{recipe.recipeDoctor}}</h5>
-      <h6 class="card-subtitle mb-2 text-muted">{{recipe.recipeDate}}</h6>
+      <h5 class="card-title">Dr. {{prescription.prescriptionDoctor}} <i class="fa fa-handshake-o pull-right text-success"></i></h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{prescription.prescriptionDate}}</h6>
       <table class="table table-responsive table-sm">
         <thead>
         <tr>
@@ -25,11 +25,11 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let item of recipe.recipeItems; let i = index">
-          <th scope="row">{{item.recipeItemId}}</th>
-          <td>{{item.recipeItemName}}</td>
-          <td>{{item.recipeItemDosage}}</td>
-          <td>{{item.recipeItemDays}}</td>
+        <tr *ngFor="let item of prescription.prescriptionItems; let i = index">
+          <th scope="row">{{item.prescriptionItemId}}</th>
+          <td>{{item.prescriptionItemName}}</td>
+          <td>{{item.prescriptionItemDosage}}</td>
+          <td>{{item.prescriptionItemDays}}</td>
         </tr>
         </tbody>
       </table>

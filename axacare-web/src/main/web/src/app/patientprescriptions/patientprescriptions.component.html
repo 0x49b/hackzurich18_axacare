@@ -9,15 +9,16 @@
 </nav>
 
 
+
 <div class="container">
 
   <div class="list-group list-group-flush">
-    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" *ngFor="let case of cases; let i = index">
+    <a class="list-group-item list-group-item-action flex-column align-items-start" *ngFor="let prescription of prescriptions; let i = index" [routerLink]="['/patientprescriptiondetail', prescription.prescriptionId]">
       <div class="d-flex w-100 justify-content-between">
-        <h6 class="mb-1">{{case.caseTitle}}</h6>
-        <small>{{case.caseOpened}}</small>
+        <h6 class="mb-1">Dr. {{prescription.prescriptionDoctor}}</h6>
+        <small>{{prescription.prescriptionDate}}</small>
       </div>
-      <p class="mb-1">{{case.caseId}}</p>
+      <p class="mb-1">{{prescription.prescriptionItems.length}}</p>
     </a>
   </div>
 </div>
