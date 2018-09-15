@@ -4,6 +4,7 @@ import ch.hackzurich.axacare.model.Case;
 import ch.hackzurich.axacare.model.Drug;
 import ch.hackzurich.axacare.model.Recipe;
 import ch.hackzurich.axacare.model.User;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +19,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin(origins = "*")
 public class ApiController {
 
     private ArrayList<Recipe> recipes;
