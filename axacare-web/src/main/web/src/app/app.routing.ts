@@ -85,8 +85,6 @@ const appRoutes: Routes = [
 
 
 
-
-
   {
     path: 'doctor',
     component: DoctordashboardComponent,

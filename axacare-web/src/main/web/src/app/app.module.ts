@@ -24,6 +24,7 @@ import {PatientprofileComponent} from './patientprofile/patientprofile.component
 import {PatientprescriptionsComponent} from './patientprescriptions/patientprescriptions.component';
 import {PatienthelpComponent} from './patienthelp/patienthelp.component';
 import {PatientprescriptiondetailComponent} from './patientprescriptiondetail/patientprescriptiondetail.component';
+import {PatientnewcaseComponent} from "./patientnewcase/patientnewcase.component";
 
 @NgModule({
   imports: [
@@ -48,6 +49,7 @@ import {PatientprescriptiondetailComponent} from './patientprescriptiondetail/pa
     PatientprescriptionsComponent,
     PatienthelpComponent,
     PatientprescriptiondetailComponent,
+    PatientnewcaseComponent,
   ],
   providers: [
     AuthGuard,
