@@ -1,19 +1,31 @@
-node{
-  stage ('Build') {
+#!/usr/bin/groovy
 
-    git url: 'https://github.com/lichtwellenreiter/axacare.git'
+@Library('github.com/fabric8io/fabric8-pipeline-library@master')
+def canaryVersion = "1.0.${env.BUILD_NUMBER}"
+def utils = new io.fabric8.Utils()
 
-    withMaven(
-        // Maven installation declared in the Jenkins "Global Tool Configuration"
-        maven: 'M3',
-        // Maven settings.xml file defined with the Jenkins Config File Provider Plugin
-        // Maven settings and global settings can also be defined in Jenkins Global Tools Configuration
-        mavenSettingsConfig: 'my-maven-settings',
-        mavenLocalRepo: '.repository') {
+mavenNode {
+  checkout scm
+  if (utils.isCI()) {
 
-      // Run the maven build
-      sh "mvn clean install"
+    mavenCI {
+        integrationTestCmd =
+             "mvn org.apache.maven.plugins:maven-failsafe-plugin:integration-test \
+                org.apache.maven.plugins:maven-failsafe-plugin:verify \
+                -Dnamespace.use.current=false -Dnamespace.use.existing=${utils.testNamespace()} \
+                -Dit.test=*IT -DfailIfNoTests=false -DenableImageStreamDetection=true \
+                -P openshift-it"
+    }
 
-    } // withMaven will discover the generated Maven artifacts, JUnit Surefire & FailSafe & FindBugs reports...
+  } else if (utils.isCD()) {
+    echo 'NOTE: running pipelines for the first time will take longer as build and base docker images are pulled onto the node'
+    container(name: 'maven') {
+      stage('Build Release') {
+        mavenCanaryRelease {
+          version = canaryVersion
+        }
+      }
+    }
   }
 }
+
