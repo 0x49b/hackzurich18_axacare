@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {ApiService} from "../_services/api.service";
 
 @Component({
   selector: 'app-patientcases',
@@ -37,13 +36,10 @@ export class PatientcasesComponent implements OnInit {
   ];
 
 
-  constructor(private apiService: ApiService) {
+  constructor() {
   }
 
-  ngOnInit() {
-    console.log(this.apiService.getOwnCases());
+  ngOnInit() {}
 
-    console.log(this.cases);
-  }
 
 }

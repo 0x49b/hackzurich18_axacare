@@ -1,12 +1,13 @@
-﻿import {Component, OnInit} from '@angular/core';
-import {Router, ActivatedRoute} from '@angular/router';
+﻿import {Component, Inject, OnDestroy, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {first} from 'rxjs/operators';
 
 import {AlertService, AuthenticationService} from '../_services';
+import {DOCUMENT} from "@angular/common";
 
 @Component({templateUrl: 'login.component.html', styleUrls: ['./login.component.css']})
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
   loginForm: FormGroup;
   loading = false;
   submitted = false;
@@ -17,10 +18,13 @@ export class LoginComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private authenticationService: AuthenticationService,
-    private alertService: AlertService) {
+    private alertService: AlertService,
+    @Inject(DOCUMENT) private document: Document) {
   }
 
   ngOnInit() {
+
+    this.document.body.classList.add('login_register');
 
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
@@ -34,7 +38,11 @@ export class LoginComponent implements OnInit {
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
-  // convenience getter for easy access to form fields
+  ngOnDestroy(){
+    this.document.body.classList.remove('login_register');
+  }
+
+// convenience getter for easy access to form fields
   get f() {
     return this.loginForm.controls;
   }

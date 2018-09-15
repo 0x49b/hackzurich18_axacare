@@ -37,5 +37,9 @@ export class UserService {
     return user.type;
   }
 
+  getCurrentUserImage(){
+    let user = JSON.parse(this.getCurrentUser());
+    return user.image;
+  }
 
 }

@@ -11,20 +11,22 @@ export class AppComponent implements OnInit{
 
     localStorage.setItem("users", "[  \n" +
       "   {  \n" +
-      "      \"firstName\":\"Doctor\",\n" +
-      "      \"lastName\":\"Who\",\n" +
+      "      \"firstName\":\"Albus\",\n" +
+      "      \"lastName\":\"Dumbledore\",\n" +
       "      \"username\":\"doctor\",\n" +
       "      \"password\":\"doctor\",\n" +
       "      \"id\":13,\n" +
-      "      \"type\":\"doctor\"\n" +
+      "      \"type\":\"doctor\",\n" +
+      "      \"image\":\"albus.jpg\"\n" +
       "   },\n" +
       "      {  \n" +
-      "      \"firstName\":\"Marvin\",\n" +
-      "      \"lastName\":\"Headknocker\",\n" +
+      "      \"firstName\":\"Harry\",\n" +
+      "      \"lastName\":\"Potter\",\n" +
       "      \"username\":\"patient\",\n" +
       "      \"password\":\"patient\",\n" +
       "      \"id\":42,\n" +
-      "      \"type\":\"patient\"\n" +
+      "      \"type\":\"patient\",\n" +
+      "      \"image\":\"potter.jpg\"\n" +
       "   },\n" +
       "      {  \n" +
       "      \"firstName\":\"Severus\",\n" +
@@ -32,7 +34,8 @@ export class AppComponent implements OnInit{
       "      \"username\":\"pharmacy\",\n" +
       "      \"password\":\"pharmacy\",\n" +
       "      \"id\":20,\n" +
-      "      \"type\":\"pharmacy\"\n" +
+      "      \"type\":\"pharmacy\",\n" +
+      "      \"image\":\"severus.jpg\"\n" +
       "   }\n" +
       "]")
   }

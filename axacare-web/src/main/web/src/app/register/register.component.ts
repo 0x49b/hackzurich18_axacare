@@ -1,12 +1,13 @@
-﻿import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { first } from 'rxjs/operators';
+﻿import {Component, Inject, OnDestroy, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {first} from 'rxjs/operators';
 
-import { AlertService, UserService } from '../_services';
+import {AlertService, UserService} from '../_services';
+import {DOCUMENT} from "@angular/common";
 
-@Component({templateUrl: 'register.component.html'})
-export class RegisterComponent implements OnInit {
+@Component({templateUrl: 'register.component.html', styleUrls: ['register.component.css']})
+export class RegisterComponent implements OnInit, OnDestroy {
     registerForm: FormGroup;
     loading = false;
     submitted = false;
@@ -15,15 +16,21 @@ export class RegisterComponent implements OnInit {
         private formBuilder: FormBuilder,
         private router: Router,
         private userService: UserService,
-        private alertService: AlertService) { }
+        private alertService: AlertService,
+        @Inject(DOCUMENT) private document: Document) { }
 
     ngOnInit() {
+      this.document.body.classList.add('login_register');
         this.registerForm = this.formBuilder.group({
             firstName: ['', Validators.required],
             lastName: ['', Validators.required],
             username: ['', Validators.required],
             password: ['', [Validators.required, Validators.minLength(6)]]
         });
+    }
+
+    ngOnDestroy(){
+      this.document.body.classList.remove('login_register');
     }
 
     // convenience getter for easy access to form fields

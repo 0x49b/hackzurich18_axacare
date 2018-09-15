@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {UserService} from "../_services";
 
 @Component({
   selector: 'app-patientprofile',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PatientprofileComponent implements OnInit {
 
-  constructor() { }
+  user:any;
+  userimage:string;
+
+  constructor(private userService:UserService) { }
 
   ngOnInit() {
+    this.user = JSON.parse(this.userService.getCurrentUser());
+    this.userimage = this.user.image;
   }
+
 
 }

@@ -5,14 +5,14 @@
       </button>
     </li>
   </ul>
-  <a class="navbar-brand text-light" routerLink="/patient">axacare</a>
+  <a class="navbar-brand text-light" routerLink="/patient">AXA<span class="font-italic font-weight-bold">care</span></a>
 </nav>
 
 
 <div class="container">
 
   <div class="list-group list-group-flush">
-    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" *ngFor="let case of cases; let i = index">
+    <a class="list-group-item list-group-item-action flex-column align-items-start" *ngFor="let case of cases; let i = index">
       <div class="d-flex w-100 justify-content-between">
         <h6 class="mb-1">{{case.caseTitle}}</h6>
         <small>{{case.caseOpened}}</small>
