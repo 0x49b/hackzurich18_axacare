@@ -32,5 +32,10 @@ export class UserService {
     return localStorage.getItem('currentUser');
   }
 
+  getCurrentUserType(){
+    let user = JSON.parse(this.getCurrentUser());
+    return user.type;
+  }
+
 
 }

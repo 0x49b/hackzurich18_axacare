@@ -1,5 +1,10 @@
 <nav class="navbar fixed-top navbar-light bg-primary">
   <a class="navbar-brand text-light" routerLink="/patient">axacare</a>
+  <ul class="navbar-nav">
+    <li class="nav-item active">
+      <a class="nav-link text-light" routerLink="/login"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
+    </li>
+  </ul>
 </nav>
 
 <div class="container-fluid">
@@ -30,9 +35,9 @@
   <div class="row">
     <div class="col-6	col-sm-6 col-md-6 col-lg-6 col-xl-6">
       <div class="card">
-        <div class="card-body text-center">
+        <div class="card-body text-center" routerLink="/patientprofile">
           <i class="fa fa-user fa-2x text-center mb-3"></i>
-          <h6 class="card-subtitle mb-2 text-muted">My Recipes</h6>
+          <h6 class="card-subtitle mb-2 text-muted">My Account</h6>
         </div>
       </div>
     </div>
@@ -41,7 +46,7 @@
       <div class="card">
         <div class="card-body text-center">
           <i class="fa fa-question fa-2x text-center mb-3"></i>
-          <h6 class="card-subtitle mb-2 text-muted">My Recipes</h6>
+          <h6 class="card-subtitle mb-2 text-muted">Help</h6>
         </div>
       </div>
     </div>
@@ -50,10 +55,11 @@
 </div>
 
 
-<nav class="navbar fixed-bottom navbar-light bg-light text-center">
-  <ul class="navbar-nav mr-auto text-center">
+<nav class="navbar fixed-bottom navbar-light bg-light text-center" data-toggle="modal" data-target="#qrModal">
+  <ul class="navbar-nav text-center">
     <li class="nav-item">
-      <button type="button" class="nav-link" data-toggle="modal" data-target="#qrModal"><i class="fa fa-qrcode"></i> show my QR Code
+      <button type="button" class="nav-link text-center"><i class="fa fa-qrcode"></i>
+        show my QR Code
       </button>
     </li>
   </ul>
@@ -70,7 +76,8 @@
         </button>
       </div>
       <div class="modal-body text-center">
-        <ngx-qrcode [qrc-value]="value" [qrc-element-type]="elementType" [qrc-version]=6 [qrc-correction-level]="'L'"></ngx-qrcode>
+        <ngx-qrcode [qrc-value]="value" [qrc-element-type]="elementType" [qrc-version]=9
+                    [qrc-correction-level]="'L'"></ngx-qrcode>
       </div>
     </div>
   </div>
