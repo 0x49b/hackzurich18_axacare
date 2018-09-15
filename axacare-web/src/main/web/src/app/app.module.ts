@@ -22,7 +22,8 @@ import {NgxQRCodeModule} from "ngx-qrcode3";
 import {PatientcasesComponent} from './patientcases/patientcases.component';
 import {PatientprofileComponent} from './patientprofile/patientprofile.component';
 import {PatientrecipesComponent} from './patientrecipes/patientrecipes.component';
-import {PatienthelpComponent} from './patienthelp/patienthelp.component';
+import {PatienthelpComponent} from './patienthelp/patienthelp.component';;
+import { PatientnewcaseComponent } from './patientnewcase/patientnewcase.component'
 
 @NgModule({
   imports: [
@@ -45,7 +46,8 @@ import {PatienthelpComponent} from './patienthelp/patienthelp.component';
     PatientcasesComponent,
     PatientprofileComponent,
     PatientrecipesComponent,
-    PatienthelpComponent],
+    PatienthelpComponent,
+    PatientnewcaseComponent],
   providers: [
     AuthGuard,
     AlertService,

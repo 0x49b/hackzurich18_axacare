@@ -11,6 +11,7 @@ import {PatientcasesComponent} from "./patientcases/patientcases.component";
 import {PatientprofileComponent} from "./patientprofile/patientprofile.component";
 import {PatientrecipesComponent} from "./patientrecipes/patientrecipes.component";
 import {PatienthelpComponent} from "./patienthelp/patienthelp.component";
+import {PatientnewcaseComponent} from "./patientnewcase/patientnewcase.component";
 
 const appRoutes: Routes = [
   {path: '',
@@ -33,6 +34,14 @@ const appRoutes: Routes = [
   {
     path: 'patientcases',
     component: PatientcasesComponent,
+    canActivate: [AuthGuard],
+    data: {
+      expectedType:['patient']
+    }
+  },
+  {
+    path: 'patientnewcase',
+    component: PatientnewcaseComponent,
     canActivate: [AuthGuard],
     data: {
       expectedType:['patient']

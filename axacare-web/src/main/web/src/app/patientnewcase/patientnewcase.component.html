@@ -12,21 +12,31 @@
 <div class="container">
 
   <div class="list-group list-group-flush">
-    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start" *ngFor="let case of cases; let i = index">
       <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">{{case.caseTitle}}</h5>
-        <small>{{case.caseOpened}}</small>
+        <h5 class="mb-1">Create new case</h5>
       </div>
-      <p class="mb-1">{{case.caseId}}</p>
-    </a>
+
+    <p class="mb-1">
+      <small>Case name</small><br>
+      <input type="text" />
+    </p>
+    <p class="mb-1">
+      <small>Date</small><br>
+      <input type="text" />
+    </p>
+    <p class="mb-1">
+      <small>Comment</small><br>
+      <textarea ></textarea>
+    </p>
+
   </div>
 </div>
 
 <nav class="navbar fixed-bottom navbar-light bg-light text-center"  routerLink="/patientnewcase">
   <ul class="navbar-nav text-center">
     <li class="nav-item">
-      <button type="button" class="nav-link text-center"><i class="fa fa-plus" aria-hidden="true"></i>
-        Add new case
+      <button type="button" class="nav-link text-center">
+        Submit
       </button>
     </li>
   </ul>
