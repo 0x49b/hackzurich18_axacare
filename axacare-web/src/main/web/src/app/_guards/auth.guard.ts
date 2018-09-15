@@ -13,7 +13,7 @@ export class AuthGuard implements CanActivate {
     const expectedType = route.data.expectedType;
     const currentUser = localStorage.getItem('currentUser');
 
-    if (currentUser && JSON.parse(currentUser).type == expectedType) {
+    if (currentUser && expectedType.includes(JSON.parse(currentUser).type)) {
       // logged in so return true
       return true;
     }
