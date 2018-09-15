@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-patientcases',
@@ -36,12 +37,10 @@ export class PatientcasesComponent implements OnInit {
   ];
 
 
-  constructor() {
+  constructor(private http: HttpClient) {
   }
 
-  ngOnInit() {
+  ngOnInit() {}
 
-    console.log(this.cases);
-  }
 
 }

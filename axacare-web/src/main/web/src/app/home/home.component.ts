@@ -1,5 +1,4 @@
 ﻿import {Component, OnInit} from '@angular/core';
-import {first} from 'rxjs/operators';
 import {Router} from "@angular/router";
 
 import {User} from '../_models';
