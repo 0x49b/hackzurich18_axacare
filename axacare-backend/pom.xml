@@ -10,6 +10,7 @@
     </parent>
     <artifactId>axacare-backend</artifactId>
     <packaging>war</packaging>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -19,10 +20,10 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
-        <dependency>
+        <!--dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
+        </dependency-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
@@ -42,17 +43,8 @@
             <artifactId>spring-boot-starter-integration</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-neo4j</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.jsonwebtoken</groupId>
-            <artifactId>jjwt</artifactId>
-            <version>0.9.1</version>
-        </dependency>
-        <dependency>
-            <groupId>ch.hackzurich</groupId>
-            <artifactId>axacare</artifactId>
+            <groupId>ch.hackzurich.axacare</groupId>
+            <artifactId>axacare-web</artifactId>
             <version>${project.version}</version>
             <scope>runtime</scope>
         </dependency>
@@ -93,7 +85,8 @@
                             <outputDirectory>${project.build.directory}/classes/resources/</outputDirectory>
                             <resources>
                                 <resource>
-                                    <directory>${project.parent.basedir}/axacare-web/src/main/web/src/</directory>
+                                    <directory>${project.parent.basedir}/axacare-web/src/main/web/dist/np-app/
+                                    </directory>
                                 </resource>
                             </resources>
                         </configuration>
