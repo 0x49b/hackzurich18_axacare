@@ -1,0 +1,39 @@
+<nav class="navbar fixed-top navbar-light bg-primary text-center">
+  <ul class="navbar-nav mr-auto pull-left">
+    <li class="nav-item text-light">
+      <button type="button" class="nav-link text-light" routerLink="/patientrecipes"><i class="fa fa-angle-left"></i> My
+        Recipes
+      </button>
+    </li>
+  </ul>
+  <a class="navbar-brand text-light" routerLink="/patient">axacare</a>
+</nav>
+
+<div class="container-fluid">
+
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">Dr. {{recipe.recipeDoctor}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{recipe.recipeDate}}</h6>
+      <table class="table table-responsive table-sm">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Dosage</th>
+          <th scope="col">Days</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of recipe.recipeItems; let i = index">
+          <th scope="row">{{item.recipeItemId}}</th>
+          <td>{{item.recipeItemName}}</td>
+          <td>{{item.recipeItemDosage}}</td>
+          <td>{{item.recipeItemDays}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
