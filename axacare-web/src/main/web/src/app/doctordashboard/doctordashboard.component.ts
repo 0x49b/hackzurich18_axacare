@@ -56,7 +56,7 @@ export class DoctordashboardComponent implements OnInit {
   updateCasesForPatient(patientId: number) {
     this.api.getCasesForPatient(patientId)
       .then(data => data.json())
-      .then(data => this.cases = data.filter(obj => obj.patient == patientId));
+      .then(data => this.cases = data.filter((obj: any) => obj.patient == patientId));
 
 
   }
