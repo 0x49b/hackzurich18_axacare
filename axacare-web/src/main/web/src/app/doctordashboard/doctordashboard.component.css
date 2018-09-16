@@ -5,3 +5,8 @@
   -moz-border-radius: 50%;
   border-radius: 50%;
 }
+
+
+.doctordashboardcards{
+  min-height: 90vh;
+}
