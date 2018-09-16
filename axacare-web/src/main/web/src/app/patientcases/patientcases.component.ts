@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {HttpClient} from "@angular/common/http";
+import {ApiService} from "../_services/api.service";
 
 @Component({
   selector: 'app-patientcases',
@@ -7,39 +9,14 @@ import {Component, OnInit} from '@angular/core';
 })
 export class PatientcasesComponent implements OnInit {
 
-  cases = [
-    {
-      "caseId": "2cd1",
-      "caseTitle": "terrible headache",
-      "caseOpened": "2018-09-15"
-    },
-    {
-      "caseId": "1cc7",
-      "caseTitle": "Shoulderpain",
-      "caseOpened": "2018-09-15"
-    },
-    {
-      "caseId": "5064",
-      "caseTitle": "broken left leg",
-      "caseOpened": "2018-09-15"
-    },
-    {
-      "caseId": "a5f9",
-      "caseTitle": "loss of power",
-      "caseOpened": "2018-09-15"
-    },
-    {
-      "caseId": "a570f",
-      "caseTitle": "high ground",
-      "caseOpened": "2018-09-15"
-    }
-  ];
+  cases:any;
 
-
-  constructor() {
+  constructor(private api: ApiService) {
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.cases = this.api.getAllCases();
+  }
 
 
 }

@@ -1,0 +1,7 @@
+.patientimg{
+  width: 50px;
+  height: auto;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}

@@ -2,6 +2,8 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {RequestOptions} from "@angular/http";
+import {from} from "rxjs";
+import {catchError} from "rxjs/operators";
 
 
 const API_URL = 'http://localhost:8090/api';
@@ -9,7 +11,6 @@ const EXT_API_KEY = 'wholesale wine';
 const EXT_API_URL = 'https://health.axa.ch/hack/api/';
 const EXT_HEADERS = new HttpHeaders();
 EXT_HEADERS.set('Authorization', 'wholesale wine');
-
 
 
 @Injectable({
@@ -63,8 +64,13 @@ export class ApiService {
 
 
   // Cases API
-  public getOwnCases() {
-    return this.doGet('/case?user=1');
+  public getCasesForPatient(patientId: number) {
+
+  }
+
+
+  public getAllCases() {
+    return this.doGet("../assets/data/cases.json");
   }
 
 
@@ -76,25 +82,24 @@ export class ApiService {
   // Drug API
   public searchForDrug(drugname: string): any {
 
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Authorization': 'wholesale wine',
+        'Cache-Control': 'no-cache'
+      })
+    };
 
-    const header = new HttpHeaders({
-      'Authorization': 'wholesale wine'
-    });
 
     if (drugname.length > 3) {
-
-      return this.http.get(EXT_API_URL + 'drugs?name=' + drugname, {headers: header})
-        .subscribe(data => {
-            console.log(data);
-            return data;
-          },
-          error => {
-            console.log('error');
-            return null;
-          });
-    } else {
-      return null;
+      return this.http.get(EXT_API_URL + 'drugs?name=' + drugname, httpOptions).subscribe(
+        data => {
+          console.log(data);
+          return data;
+        },
+        error => {
+          console.error(error.toLocaleString())
+        }
+      );
     }
-
   }
 }

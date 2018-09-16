@@ -22,9 +22,10 @@
           </blockquote>
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">Cras justo odio</li>
-          <li class="list-group-item">Dapibus ac facilisis in</li>
-          <li class="list-group-item">Vestibulum at eros</li>
+          <!--li class="list-group-item" *ngFor="let patient of patients">
+              (click)="choosePatient(patient.id)">
+            <span><img [src]="'assets/'+patient.image" class="patientimg mr-2">{{patient.firstName}} {{patient.lastName}}</span>
+          </li-->
         </ul>
 
       </div>
@@ -37,10 +38,7 @@
           Cases
         </div>
         <div class="card-body flex-fill">
-          <blockquote class="blockquote mb-0">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-          </blockquote>
+          <span class="noPatient">Please choose a Patient</span>
         </div>
       </div>
     </div>
@@ -58,9 +56,20 @@
           </blockquote>
 
 
+          <div class="form-group">
+            <label for="drugSearchInput">Search Drugs</label>
+            <input type="text" class="form-control" id="drugSearchInput" #drugSearchInput
+                   (keyup)="searchDrugs(drugSearchInput.value)">
+            <small id="drugSearchHelp" class="form-text text-muted">Enter at least 3 Characters</small>
+            <!--ul>
+              <li *ngFor="let drug of drugs">{{drug.swissmedicIds[0]}} {{drug.title}}</li>
+            </ul-->
 
-          <input type="text" #titleInput (keyup)="addTodo(titleInput.value)">
+            <ul>
+              <li *ngFor="let drug of drugs">{{drug}}</li>
+            </ul>
 
+          </div>
 
         </div>
       </div>

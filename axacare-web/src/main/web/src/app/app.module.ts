@@ -1,6 +1,6 @@
 ﻿import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 // used to create fake backend
 import {ErrorInterceptor, fakeBackendProvider, JwtInterceptor} from './_helpers';
@@ -23,6 +23,7 @@ import {PatientprescriptionsComponent} from './patientprescriptions/patientpresc
 import {PatienthelpComponent} from './patienthelp/patienthelp.component';
 import {PatientprescriptiondetailComponent} from './patientprescriptiondetail/patientprescriptiondetail.component';
 import {PatientnewcaseComponent} from "./patientnewcase/patientnewcase.component";
+import {NgSelectModule} from "@ng-select/ng-select";
 
 @NgModule({
   imports: [
