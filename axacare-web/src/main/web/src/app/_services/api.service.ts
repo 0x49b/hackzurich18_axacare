@@ -65,8 +65,12 @@ export class ApiService {
 
   // Cases API
   public getCasesForPatient(patientId: number) {
-
+    return fetch("../assets/data/cases.json")
+      .then(function(response) {
+        return response.json();
+      });
   }
+
 
   public getAllCases() {
     return this.doGet("../assets/data/cases.json");
@@ -76,6 +80,8 @@ export class ApiService {
   /**
    * SEARCH IN THE EXTERNAL API
    */
+
+
   // Drug API
   public searchForDrug(drugname: string): any {
 
@@ -86,16 +92,6 @@ export class ApiService {
       })
     };
 
-    if (drugname.length > 3) {
-      return this.http.get(EXT_API_URL + 'drugs?name=' + drugname, httpOptions).subscribe(
-        data => {
-          console.log(data);
-          return data;
-        },
-        error => {
-          console.error(error.toLocaleString())
-        }
-      );
-    }
+      return this.http.get(EXT_API_URL + 'drugs?name=' + drugname, httpOptions);
   }
 }
