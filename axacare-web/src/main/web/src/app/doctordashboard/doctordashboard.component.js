@@ -16,15 +16,22 @@ var DoctordashboardComponent = /** @class */ (function () {
         this.api = api;
         this.cdr = cdr;
         this.patients = [];
+        this.cases = [];
+        this.drugs = [];
     }
     DoctordashboardComponent.prototype.ngOnInit = function () {
         this.readUserListForPatients();
         console.log(this.patients);
     };
     DoctordashboardComponent.prototype.searchDrugs = function (title) {
+        var _this = this;
         if (title.length > 3) {
-            this.drugs = this.api.searchForDrug(title);
-            this.cdr.detectChanges();
+            this.drugs = this.api.searchForDrug(title).subscribe(function (data) {
+                _this.drugs = data;
+            });
+        }
+        else {
+            this.drugs = [];
         }
     };
     DoctordashboardComponent.prototype.readUserListForPatients = function () {
@@ -41,8 +48,14 @@ var DoctordashboardComponent = /** @class */ (function () {
         this.actualPatient = null;
     };
     DoctordashboardComponent.prototype.updateCasesForPatient = function (patientId) {
-        var cases = this.api.getCasesForPatient(patientId);
-        console.log(cases);
+        var _this = this;
+        this.api.getCasesForPatient(patientId)
+            .then(function (data) { return data.json(); })
+            .then(function (data) { return _this.cases = data.filter(function (obj) { return obj.patient == patientId; }); });
+    };
+    DoctordashboardComponent.prototype.getActualPatient = function () {
+        var _this = this;
+        return this.patients.find(function (patient) { return patient.id === _this.actualPatient; });
     };
     DoctordashboardComponent = __decorate([
         core_1.Component({

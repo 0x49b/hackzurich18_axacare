@@ -10,13 +10,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var http_1 = require("@angular/common/http");
 var api_service_1 = require("../_services/api.service");
 var PatientcasesComponent = /** @class */ (function () {
-    function PatientcasesComponent(api) {
+    function PatientcasesComponent(api, http) {
         this.api = api;
+        this.http = http;
     }
     PatientcasesComponent.prototype.ngOnInit = function () {
-        this.cases = this.api.getAllCases();
+        var _this = this;
+        this.http.get("../assets/data/cases.json").subscribe(function (data) { return _this.cases = data; }, function (error) { return console.error("cannot load cases"); });
     };
     PatientcasesComponent = __decorate([
         core_1.Component({
@@ -24,7 +27,7 @@ var PatientcasesComponent = /** @class */ (function () {
             templateUrl: './patientcases.component.html',
             styleUrls: ['./patientcases.component.css']
         }),
-        __metadata("design:paramtypes", [api_service_1.ApiService])
+        __metadata("design:paramtypes", [api_service_1.ApiService, http_1.HttpClient])
     ], PatientcasesComponent);
     return PatientcasesComponent;
 }());

@@ -15,6 +15,8 @@ export class DoctordashboardComponent implements OnInit {
   cases: object = [];
   drugs: any = [];
 
+
+
   constructor(private api: ApiService, private cdr: ChangeDetectorRef) {
   }
 

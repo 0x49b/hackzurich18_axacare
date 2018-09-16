@@ -11,16 +11,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/common/http");
-var router_1 = require("@angular/router");
 var API_URL = 'http://localhost:8090/api';
 var EXT_API_KEY = 'wholesale wine';
 var EXT_API_URL = 'https://health.axa.ch/hack/api/';
 var EXT_HEADERS = new http_1.HttpHeaders();
 EXT_HEADERS.set('Authorization', 'wholesale wine');
 var ApiService = /** @class */ (function () {
-    function ApiService(http, router) {
+    function ApiService(http, cdr) {
         this.http = http;
-        this.router = router;
+        this.cdr = cdr;
     }
     ApiService.prototype.doGet = function (ressource) {
         var apiURL = "" + API_URL + ressource;
@@ -50,6 +49,7 @@ var ApiService = /** @class */ (function () {
     };
     // Cases API
     ApiService.prototype.getCasesForPatient = function (patientId) {
+        return fetch("../assets/data/cases.json");
     };
     ApiService.prototype.getAllCases = function () {
         return this.doGet("../assets/data/cases.json");
@@ -65,20 +65,13 @@ var ApiService = /** @class */ (function () {
                 'Cache-Control': 'no-cache'
             })
         };
-        if (drugname.length > 3) {
-            return this.http.get(EXT_API_URL + 'drugs?name=' + drugname, httpOptions).subscribe(function (data) {
-                console.log(data);
-                return data;
-            }, function (error) {
-                console.error(error.toLocaleString());
-            });
-        }
+        return this.http.get(EXT_API_URL + 'drugs?name=' + drugname, httpOptions);
     };
     ApiService = __decorate([
         core_1.Injectable({
             providedIn: 'root'
         }),
-        __metadata("design:paramtypes", [http_1.HttpClient, router_1.Router])
+        __metadata("design:paramtypes", [http_1.HttpClient, core_1.ApplicationRef])
     ], ApiService);
     return ApiService;
 }());

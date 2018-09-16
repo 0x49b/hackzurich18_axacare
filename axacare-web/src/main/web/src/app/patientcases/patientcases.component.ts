@@ -11,11 +11,16 @@ export class PatientcasesComponent implements OnInit {
 
   cases:any;
 
-  constructor(private api: ApiService) {
+  constructor(private api: ApiService, private http:HttpClient) {
   }
 
   ngOnInit() {
-    this.cases = this.api.getAllCases();
+
+    this.http.get("../assets/data/cases.json").subscribe(
+      data => this.cases = data,
+      error => console.error("cannot load cases")
+    )
+
   }
 
 
