@@ -12,8 +12,8 @@ export class DoctordashboardComponent implements OnInit {
 
   patients: any = [];
   actualPatient: number;
-  cases: any;
-  drugs: any;
+  cases: any = [];
+  drugs: any = [];
 
   constructor(private api: ApiService, private cdr: ChangeDetectorRef) {
   }
@@ -26,8 +26,10 @@ export class DoctordashboardComponent implements OnInit {
 
   searchDrugs(title: string) {
     if (title.length > 3) {
-      this.drugs = this.api.searchForDrug(title);
-      this.cdr.detectChanges();
+      this.drugs = this.api.searchForDrug(title).subscribe(
+        data => this.drugs = data
+      );
+      console.log(this.drugs);
     }
   }
 
@@ -44,8 +46,13 @@ export class DoctordashboardComponent implements OnInit {
   }
 
   updateCasesForPatient(patientId: number) {
-    let cases = this.api.getCasesForPatient(patientId);
-    console.log(cases);
+    this.api.getCasesForPatient(patientId)
+      .then(function(myJson) {
+        let data = myJson.filter(obj => obj.patient == patientId);
+        console.log(data);
+        this.cases.push(data);
+    });
+
   }
 
 }
