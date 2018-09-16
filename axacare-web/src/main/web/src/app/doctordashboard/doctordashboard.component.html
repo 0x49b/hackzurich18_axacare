@@ -17,7 +17,7 @@
         </div>
         <div class="card-body">
           <ul class="list-group list-group-flush">
-            <li class="list-group-item" *ngFor="let patient of patients" (click)="choosePatient(patient.id)">
+            <li [className]="actualPatient == patient.id ? 'list-group-item active' : 'list-group-item'" *ngFor="let patient of patients" (click)="choosePatient(patient.id)">
               <span><img [src]="'assets/' + patient.image" class="patientimg mr-2">{{patient.firstName}} {{patient.lastName}}</span>
             </li>
           </ul>
@@ -28,12 +28,12 @@
     <div class="col-sm">
       <div class="card doctordashboardcards">
         <div class="card-header">
-          Cases <button class="btn btn-sm btn-dark-outline pull-right" (click)="resetActualPatient()">clear selection</button>
+          Cases <button class="btn btn-sm btn-dark-outline pull-right clear-btn" (click)="resetActualPatient()">clear selection</button>
         </div>
         <div class="card-body flex-fill">
           <span *ngIf="actualPatient == null" class="noPatient">Please choose a Patient</span>
           <ul  *ngIf="actualPatient != null" class="list-group list-group-flush">
-            <li class="list-group-item" *ngFor="let patient of patients" (click)="choosePatient(patient.id)">
+            <li class="list-group-item" *ngFor="let patient of patients" (click)="choosePatient(patient.id)"  >
               <span><img [src]="'assets/' + patient.image" class="patientimg mr-2">{{patient.firstName}} {{patient.lastName}}</span>
             </li>
           </ul>
