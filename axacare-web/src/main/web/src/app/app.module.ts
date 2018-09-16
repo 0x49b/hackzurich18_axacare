@@ -23,7 +23,6 @@ import {PatientprescriptionsComponent} from './patientprescriptions/patientpresc
 import {PatienthelpComponent} from './patienthelp/patienthelp.component';
 import {PatientprescriptiondetailComponent} from './patientprescriptiondetail/patientprescriptiondetail.component';
 import {PatientnewcaseComponent} from "./patientnewcase/patientnewcase.component";
-import {NgSelectModule} from "@ng-select/ng-select";
 
 @NgModule({
   imports: [
