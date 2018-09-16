@@ -12,7 +12,7 @@ export class DoctordashboardComponent implements OnInit {
 
   patients: any = [];
   actualPatient: number;
-  cases: any = [];
+  cases: object = [];
   drugs: any = [];
 
   constructor(private api: ApiService, private cdr: ChangeDetectorRef) {
@@ -27,9 +27,13 @@ export class DoctordashboardComponent implements OnInit {
   searchDrugs(title: string) {
     if (title.length > 3) {
       this.drugs = this.api.searchForDrug(title).subscribe(
-        data => this.drugs = data
+        (data: any) => {
+          this.drugs = data;
+        }
       );
-      console.log(this.drugs);
+    }
+    else {
+      this.drugs = [];
     }
   }
 
@@ -51,12 +55,14 @@ export class DoctordashboardComponent implements OnInit {
 
   updateCasesForPatient(patientId: number) {
     this.api.getCasesForPatient(patientId)
-      .then(function(myJson) {
-        let data = myJson.filter(obj => obj.patient == patientId);
-        console.log(data);
-        this.cases.push(data);
-    });
+      .then(data => data.json())
+      .then(data => this.cases = data.filter(obj => obj.patient == patientId));
 
+
+  }
+
+  getActualPatient() {
+    return this.patients.find((patient: any) => patient.id === this.actualPatient);
   }
 
 }

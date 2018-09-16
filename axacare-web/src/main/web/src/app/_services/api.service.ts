@@ -1,9 +1,6 @@
-import {Injectable} from '@angular/core';
+import {ApplicationRef, Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
-import {Router} from '@angular/router';
-import {RequestOptions} from "@angular/http";
-import {from} from "rxjs";
-import {catchError} from "rxjs/operators";
+
 
 
 const API_URL = 'http://localhost:8090/api';
@@ -19,7 +16,7 @@ EXT_HEADERS.set('Authorization', 'wholesale wine');
 export class ApiService {
 
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient, private cdr: ApplicationRef) {
   }
 
 
@@ -65,10 +62,7 @@ export class ApiService {
 
   // Cases API
   public getCasesForPatient(patientId: number) {
-    return fetch("../assets/data/cases.json")
-      .then(function(response) {
-        return response.json();
-      });
+    return fetch("../assets/data/cases.json");
   }
 
 
