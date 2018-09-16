@@ -20,14 +20,14 @@ var PatientprescriptionsComponent = /** @class */ (function () {
                 "prescriptionItems": [
                     {
                         "prescriptionItemId": 35,
-                        "prescriptionItemName": "Maureen",
-                        "prescriptionItemDosage": "50mg",
+                        "prescriptionItemName": "Voltaren Dolo forte 25 mg Dragées",
+                        "prescriptionItemDosage": "25mg",
                         "prescriptionItemDays": 20
                     },
                     {
                         "prescriptionItemId": 26,
-                        "prescriptionItemName": "Barron",
-                        "prescriptionItemDosage": "50mg",
+                        "prescriptionItemName": "Aspirin® Complex",
+                        "prescriptionItemDosage": "-",
                         "prescriptionItemDays": 20
                     }
                 ]
@@ -39,14 +39,14 @@ var PatientprescriptionsComponent = /** @class */ (function () {
                 "prescriptionItems": [
                     {
                         "prescriptionItemId": 31,
-                        "prescriptionItemName": "Martina",
-                        "prescriptionItemDosage": "500mg",
+                        "prescriptionItemName": "Panadol® Extra",
+                        "prescriptionItemDosage": "-",
                         "prescriptionItemDays": 4
                     },
                     {
                         "prescriptionItemId": 21,
-                        "prescriptionItemName": "Francesca",
-                        "prescriptionItemDosage": "50mg",
+                        "prescriptionItemName": " OMIDA® Stimmungsschwankungsglobuli",
+                        "prescriptionItemDosage": "-",
                         "prescriptionItemDays": 4
                     }
                 ]
@@ -58,8 +58,8 @@ var PatientprescriptionsComponent = /** @class */ (function () {
                 "prescriptionItems": [
                     {
                         "prescriptionItemId": 40,
-                        "prescriptionItemName": "Dodson",
-                        "prescriptionItemDosage": "500mg",
+                        "prescriptionItemName": "DAFALGAN® Pulver für Kinder",
+                        "prescriptionItemDosage": "-",
                         "prescriptionItemDays": 20
                     }
                 ]
@@ -71,20 +71,20 @@ var PatientprescriptionsComponent = /** @class */ (function () {
                 "prescriptionItems": [
                     {
                         "prescriptionItemId": 25,
-                        "prescriptionItemName": "Livingston",
-                        "prescriptionItemDosage": "50mg",
+                        "prescriptionItemName": "Furadantin® retard",
+                        "prescriptionItemDosage": "-",
                         "prescriptionItemDays": 20
                     },
                     {
                         "prescriptionItemId": 33,
-                        "prescriptionItemName": "Blanche",
-                        "prescriptionItemDosage": "50mg",
+                        "prescriptionItemName": "Antidry® wash",
+                        "prescriptionItemDosage": "-",
                         "prescriptionItemDays": 20
                     },
                     {
                         "prescriptionItemId": 23,
-                        "prescriptionItemName": "Lopez",
-                        "prescriptionItemDosage": "50mg",
+                        "prescriptionItemName": "Ceteco® Sandoz Filmtabletten",
+                        "prescriptionItemDosage": "-",
                         "prescriptionItemDays": 20
                     }
                 ]
@@ -96,8 +96,8 @@ var PatientprescriptionsComponent = /** @class */ (function () {
                 "prescriptionItems": [
                     {
                         "prescriptionItemId": 38,
-                        "prescriptionItemName": "Robles",
-                        "prescriptionItemDosage": "50mg",
+                        "prescriptionItemName": "Aspirin Cardio® 100/300",
+                        "prescriptionItemDosage": "300mg",
                         "prescriptionItemDays": 20
                     }
                 ]
