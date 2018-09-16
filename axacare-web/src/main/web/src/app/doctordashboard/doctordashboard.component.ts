@@ -19,8 +19,7 @@ export class DoctordashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    //this.readUserListForPatients();
-    this.actualPatient = 0;
+    this.readUserListForPatients();
     console.log(this.patients);
   }
 

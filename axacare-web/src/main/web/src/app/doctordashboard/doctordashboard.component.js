@@ -18,8 +18,7 @@ var DoctordashboardComponent = /** @class */ (function () {
         this.patients = [];
     }
     DoctordashboardComponent.prototype.ngOnInit = function () {
-        //this.readUserListForPatients();
-        this.actualPatient = 0;
+        this.readUserListForPatients();
         console.log(this.patients);
     };
     DoctordashboardComponent.prototype.searchDrugs = function (title) {

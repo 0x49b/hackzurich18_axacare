@@ -22,10 +22,9 @@
           </blockquote>
         </div>
         <ul class="list-group list-group-flush">
-          <!--li class="list-group-item" *ngFor="let patient of patients">
-              (click)="choosePatient(patient.id)">
-            <span><img [src]="'assets/'+patient.image" class="patientimg mr-2">{{patient.firstName}} {{patient.lastName}}</span>
-          </li-->
+          <li class="list-group-item" *ngFor="let patient of patients" (click)="choosePatient(patient.id)">
+            <span><img [src]="'assets/' + patient.image" class="patientimg mr-2">{{patient.firstName}} {{patient.lastName}}</span>
+          </li>
         </ul>
 
       </div>
@@ -61,14 +60,9 @@
             <input type="text" class="form-control" id="drugSearchInput" #drugSearchInput
                    (keyup)="searchDrugs(drugSearchInput.value)">
             <small id="drugSearchHelp" class="form-text text-muted">Enter at least 3 Characters</small>
-            <!--ul>
-              <li *ngFor="let drug of drugs">{{drug.swissmedicIds[0]}} {{drug.title}}</li>
-            </ul-->
-
             <ul>
-              <li *ngFor="let drug of drugs">{{drug}}</li>
+              <li *ngFor="let drug of drugs">{{drug.swissmedicIds[0]}} {{drug.title}}</li>
             </ul>
-
           </div>
 
         </div>
