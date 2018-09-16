@@ -5,3 +5,12 @@
   -moz-border-radius: 50%;
   border-radius: 50%;
 }
+
+
+.doctordashboardcards{
+  min-height: 90vh;
+}
+
+.clear-btn{
+  padding: 0px 5px;
+}

@@ -45,6 +45,10 @@ export class DoctordashboardComponent implements OnInit {
     this.updateCasesForPatient(patientId);
   }
 
+  resetActualPatient(){
+    this.actualPatient = null;
+  }
+
   updateCasesForPatient(patientId: number) {
     this.api.getCasesForPatient(patientId)
       .then(function(myJson) {

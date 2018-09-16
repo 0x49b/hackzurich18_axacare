@@ -37,6 +37,9 @@ var DoctordashboardComponent = /** @class */ (function () {
         this.actualPatient = patientId;
         this.updateCasesForPatient(patientId);
     };
+    DoctordashboardComponent.prototype.resetActualPatient = function () {
+        this.actualPatient = null;
+    };
     DoctordashboardComponent.prototype.updateCasesForPatient = function (patientId) {
         var cases = this.api.getCasesForPatient(patientId);
         console.log(cases);

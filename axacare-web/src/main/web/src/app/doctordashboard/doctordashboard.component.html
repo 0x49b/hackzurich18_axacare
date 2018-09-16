@@ -10,48 +10,43 @@
 <div class="container-fluid">
   <div class="row">
 
-    <div class="col-sm ">
-      <div class="card">
+    <div class="col-sm">
+      <div class="card doctordashboardcards">
         <div class="card-header">
           Patients
         </div>
         <div class="card-body">
-          <blockquote class="blockquote mb-0">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-          </blockquote>
+          <ul class="list-group list-group-flush">
+            <li [className]="actualPatient == patient.id ? 'list-group-item active' : 'list-group-item'" *ngFor="let patient of patients" (click)="choosePatient(patient.id)">
+              <span><img [src]="'assets/' + patient.image" class="patientimg mr-2">{{patient.firstName}} {{patient.lastName}}</span>
+            </li>
+          </ul>
         </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item" *ngFor="let patient of patients" (click)="choosePatient(patient.id)">
-            <span><img [src]="'assets/' + patient.image" class="patientimg mr-2">{{patient.firstName}} {{patient.lastName}}</span>
-          </li>
-        </ul>
-
       </div>
     </div>
 
-    <div class="col-sm ">
-      <div class="card">
+    <div class="col-sm">
+      <div class="card doctordashboardcards">
         <div class="card-header">
-          Cases
+          Cases <button class="btn btn-sm btn-dark-outline pull-right clear-btn" (click)="resetActualPatient()">clear selection</button>
         </div>
         <div class="card-body flex-fill">
-          <span class="noPatient">Please choose a Patient</span>
+          <span *ngIf="actualPatient == null" class="noPatient">Please choose a Patient</span>
+          <ul  *ngIf="actualPatient != null" class="list-group list-group-flush">
+            <li class="list-group-item" *ngFor="let patient of patients" (click)="choosePatient(patient.id)"  >
+              <span><img [src]="'assets/' + patient.image" class="patientimg mr-2">{{patient.firstName}} {{patient.lastName}}</span>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
 
-    <div class="col-sm ">
-      <div class="card">
+    <div class="col-sm">
+      <div class="card doctordashboardcards">
         <div class="card-header">
           Medication / Prescriptions
         </div>
         <div class="card-body flex-fill">
-          <blockquote class="blockquote mb-0">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-            <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-          </blockquote>
-
           <div class="form-group">
             <label for="drugSearchInput">Search Drugs</label>
             <input type="text" class="form-control" id="drugSearchInput" #drugSearchInput
