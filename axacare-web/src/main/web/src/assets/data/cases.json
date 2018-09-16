@@ -1,7 +1,7 @@
 [
   {
     "caseId": "2cd1",
-    "caseTitle": "terrible headache",
+    "caseTitle": "Terrible Headache",
     "caseOpened": "2018-09-15",
     "patient": 42
   },
@@ -13,25 +13,19 @@
   },
   {
     "caseId": "5064",
-    "caseTitle": "broken left leg",
+    "caseTitle": "Broken Leg, left",
     "caseOpened": "2018-09-15",
     "patient": 42
   },
   {
     "caseId": "a5f9",
-    "caseTitle": "loss of power",
+    "caseTitle": "Loss of power",
     "caseOpened": "2018-09-15",
     "patient": 42
   },
   {
     "caseId": "a570f",
-    "caseTitle": "high ground",
-    "caseOpened": "2018-09-15",
-    "patient": 42
-  },
-  {
-    "caseId": "a570f",
-    "caseTitle": "high ground",
+    "caseTitle": "Depressions",
     "caseOpened": "2018-09-15",
     "patient": 43
   }
