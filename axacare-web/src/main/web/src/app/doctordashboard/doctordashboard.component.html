@@ -33,9 +33,11 @@
         <div class="card-body flex-fill">
           <span *ngIf="actualPatient == null" class="noPatient">Please choose a Patient</span>
           <ul  *ngIf="actualPatient != null" class="list-group list-group-flush">
-            <li class="list-group-item" *ngFor="let patient of patients" (click)="choosePatient(patient.id)"  >
-              <span><img [src]="'assets/' + patient.image" class="patientimg mr-2">{{patient.firstName}} {{patient.lastName}}</span>
+            <li class="list-group-item">
+              <span><img [src]="'assets/' + getActualPatient().image" class="patientimg mr-2">{{getActualPatient().firstName}} {{getActualPatient().lastName}}</span>
             </li>
+
+            <li class="list-group-item" *ngFor="let case of cases">{{case.caseTitle}}</li>
           </ul>
         </div>
       </div>
@@ -52,8 +54,8 @@
             <input type="text" class="form-control" id="drugSearchInput" #drugSearchInput
                    (keyup)="searchDrugs(drugSearchInput.value)">
             <small id="drugSearchHelp" class="form-text text-muted">Enter at least 3 Characters</small>
-            <ul>
-              <li *ngFor="let drug of drugs">{{drug.swissmedicIds[0]}} {{drug.title}}</li>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item" *ngFor="let drug of drugs">{{drug.swissmedicIds[0]}} {{drug.title}}</li>
             </ul>
           </div>
 
